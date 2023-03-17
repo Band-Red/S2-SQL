@@ -1,0 +1,19 @@
+create table myClass2019
+(
+classNumber  number(3)not null,
+subjectCode varchar(10) Primary key,
+courseName varchar(15) unique,
+classSaize Number(20)constraint ck_classSaize check(classSaize<=40) ,
+classLocation varchar(15) Default 'Ground Floor'
+);
+insert into myClass2019 VALUES(100,'100-math','Precalculus',25,'First Floor');
+insert into myClass2019 values(201,'200-comp','Programming',20,'Second Floor');
+insert into myClass2019 VALUES(102,'241-infs','Database',30,'First Floor');
+insert into myClass2019 VALUES(303,'300-cnet','Network',30,'Th Floor');
+SELECT * from myClass2019;
+alter table myClass2019 rename column courseName to subjectName;
+insert into myClass2019(classNumber,subjectCode,subjectName)VALUES(400,'345-it','Web Design');
+UPDATE myClass2019  set subjectName='Matrix'  where classNumber=100; 
+DELETE FROM myClass2019 where classNumber = 201;
+select subjectName,subjectCode,classLocation,classNumber from myClass2019 where classNumber=303;
+select * from myClass2019 where classnumber = 200;
